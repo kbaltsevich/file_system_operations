@@ -29,9 +29,18 @@ const delFile = (file) => {
       });
 }
 
+//создание файла .txt с динамической "шапкой"
+//node -e 'require("./index").createFileTXT("text.txt", "Helloooooooo")'
+const createFileTXT = (file_name, header) => {
+  fs.writeFile(`${fileDir}${file_name}`, `${header}`, (err) => {
+    if(err) throw err;
+});
+}
+
 
 module.exports = {
     readDirectory,
     readFile,
-    delFile
+    delFile,
+    createFileTXT
 }
